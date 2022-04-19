@@ -3,23 +3,20 @@
 @tailwind utilities;
 
 
-
 @layer base {
     html {
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
         font: 112.5%/1.45em georgia, serif, sans-serif;
-        box-sizing: border-box;
-        overflow-y: scroll;
+        @apply box-border overflow-y-scroll;
+        /* @apply box-border overflow-y-scroll text-[112.5%/1.45em]; */
     }
 
+
     body {
-        margin: 0;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        color: hsla(0, 0%, 0%, 0.8);
         font-family: georgia, serif;
-        font-weight: normal;
+        @apply: m-0 antialiased grayscale bg-[hsla(0, 0%, 0%, 0.8)] font-normal;
         word-wrap: break-word;
         font-kerning: normal;
         -moz-font-feature-settings: "kern", "liga", "clig", "calt";
@@ -40,155 +37,109 @@
     nav,
     section,
     summary {
-        display: block;
+        @apply block;
     }
-
 
     audio,
     canvas,
     progress,
     video {
-        display: inline-block;
+        @apply inline-block;
     }
 
     audio:not([controls]) {
-        display: none;
-        height: 0;
+        @apply hidden h-0;
     }
 
     progress {
-        vertical-align: baseline;
+        @apply align-baseline;
     }
 
     [hidden],
     template {
-        display: none;
+        @apply hidden;
     }
 
+
     a {
-        background-color: transparent;
         -webkit-text-decoration-skip: objects;
-        @apply underline text-[#0000EE]
+        @apply bg-[transparent] underline text-[#0000EE];
     }
 
     a:active,
     a:hover {
-        outline-width: 0;
+        @apply outline-0;
     }
 
     a:visited {
         @apply text-[#551A8B]
     }
 
+
     abbr[title] {
-        border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-        cursor: help;
-        text-decoration: none;
+        border-color: hsla(0, 0%, 0%, 0.5);
+        @apply border-b-[1px] border-dotted cursor-help;
     }
 
     b,
     strong {
-        font-weight: inherit;
-        font-weight: bolder;
+        @apply text-inherit font-extrabold;
     }
 
     dfn {
-        font-style: italic;
+        @apply italic;
     }
 
     h1 {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
-        color: inherit;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        font-weight: bold;
         text-rendering: optimizeLegibility;
-        font-size: 2.25rem;
-        line-height: 1.1;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem] font-bold text-[2.25rem] leading-[1.1] text-inherit font-sans;
     }
 
     mark {
-        background-color: #ff0;
-        color: #000;
+        @apply bg-[#ff0] text-[#000];
     }
 
     small {
-        font-size: 80%;
+        @apply text-[80%];
     }
 
     sub,
     sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
+        @apply text-[75%] leading-[0] relative align-baseline;
     }
 
     sub {
-        bottom: -0.25em;
+        @apply bottom-[-0.25em];
     }
 
     sup {
-        top: -0.5em;
+        @apply top-[-0.5em];
     }
 
     img {
-        border-style: none;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply max-w-[100%] border-none ml-0 mr-0 mt-0 mb-[1.45rem] p-0;
     }
 
     svg:not(:root) {
-        overflow: hidden;
+        @apply overflow-hidden;
     }
 
     code,
     kbd,
     pre,
     samp {
-        font-family: monospace;
-        font-size: 1em;
+        @apply text-[1em] font-['monospace'];
     }
 
     figure {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-0 mr-0 mt-0 mb-[1.45rem] p-0;
     }
 
     hr {
         box-sizing: content-box;
-        overflow: visible;
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
+        background-color: hsla(0, 0%, 0%, 0.2);
         margin-bottom: calc(1.45rem - 1px);
-        background: hsla(0, 0%, 0%, 0.2);
-        border: none;
-        height: 1px;
+        @apply ml-0 mr-0 mt-0 p-0 h-[1px] border-none;
     }
 
     button,
@@ -196,17 +147,16 @@
     optgroup,
     select,
     textarea {
-        font: inherit;
-        margin: 0;
+        @apply m-0 text-inherit;
     }
 
     optgroup {
-        font-weight: 700;
+        @apply m-0 font-bold;
     }
 
     button,
     input {
-        overflow: visible;
+        @apply overflow-visible;
     }
 
     button,
@@ -225,8 +175,7 @@
     [type="reset"]::-moz-focus-inner,
     [type="submit"]::-moz-focus-inner,
     button::-moz-focus-inner {
-        border-style: none;
-        padding: 0;
+        @apply border-none p-0;
     }
 
     [type="button"]:-moz-focusring,
@@ -237,45 +186,30 @@
     }
 
     fieldset {
-        border: 1px solid silver;
-        padding: 0.35em 0.625em 0.75em;
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply border-[1px] border-solid border-[silver] pt-[0.35em] pr-[0.625em] pb-[0.75em] ml-0 mr-0 mt-0 p-0 mb-[1.45rem];
     }
 
     legend {
-        box-sizing: border-box;
-        color: inherit;
-        display: table;
-        max-width: 100%;
-        padding: 0;
-        white-space: normal;
+        @apply box-border text-inherit table max-w-[100%] p-0 whitespace-normal;
     }
 
     textarea {
-        overflow: auto;
+        @apply overflow-auto;
     }
 
     [type="checkbox"],
     [type="radio"] {
-        box-sizing: border-box;
-        padding: 0;
+        @apply box-border p-0;
     }
 
     [type="number"]::-webkit-inner-spin-button,
     [type="number"]::-webkit-outer-spin-button {
-        height: auto;
+        @apply h-auto;
     }
 
     [type="search"] {
         -webkit-appearance: textfield;
-        outline-offset: -2px;
+        @apply outline-offset-[-2px];
     }
 
     [type="search"]::-webkit-search-cancel-button,
@@ -284,13 +218,12 @@
     }
 
     ::-webkit-input-placeholder {
-        color: inherit;
-        opacity: 0.54;
+        @apply text-inherit opacity-[0.54];
     }
 
     ::-webkit-file-upload-button {
         -webkit-appearance: button;
-        font: inherit;
+        @apply text-inherit;
     }
 
     * {
@@ -306,372 +239,195 @@
     }
 
     h2 {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
-        color: inherit;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        font-weight: bold;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem] text-inherit font-bold text-[1.38316rem] leading-[1.1] font-sans;
         text-rendering: optimizeLegibility;
-        font-size: 1.62671rem;
-        line-height: 1.1;
     }
 
     h3 {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
-        color: inherit;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        font-weight: bold;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem] text-inherit font-bold text-[1.38316rem] leading-[1.1] font-sans;
         text-rendering: optimizeLegibility;
-        font-size: 1.38316rem;
-        line-height: 1.1;
     }
 
     h4 {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
-        color: inherit;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        font-weight: bold;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem] text-inherit font-bold text-[1rem] leading-[1.1] font-sans;
         text-rendering: optimizeLegibility;
-        font-size: 1rem;
-        line-height: 1.1;
     }
 
     h5 {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
-        color: inherit;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        font-weight: bold;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem] text-inherit font-bold text-[0.85028rem] leading-[1.1] font-sans;
         text-rendering: optimizeLegibility;
-        font-size: 0.85028rem;
-        line-height: 1.1;
     }
 
     h6 {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
-        color: inherit;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        font-weight: bold;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem] text-inherit font-bold text-[0.78405rem] leading-[1.1] font-sans;
         text-rendering: optimizeLegibility;
-        font-size: 0.78405rem;
-        line-height: 1.1;
     }
 
     hgroup {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem];
     }
 
     ul {
-        margin-left: 1.45rem;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
-        list-style-position: outside;
+        @apply ml-[1.45rem] mr-0 mt-0 p-0 mb-[1.45rem] list-outside;
         list-style-image: none;
     }
 
     ol {
-        margin-left: 1.45rem;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
-        list-style-position: outside;
+        @apply ml-[1.45rem] mr-0 mt-0 p-0 mb-[1.45rem] list-outside;
         list-style-image: none;
     }
 
     dl {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem];
     }
 
     dd {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem];
     }
 
     p {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem];
     }
 
     pre {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        margin-bottom: 1.45rem;
-        font-size: 0.85rem;
-        line-height: 1.42;
-        background: hsla(0, 0%, 0%, 0.04);
-        border-radius: 3px;
-        overflow: auto;
+        background-color: hsla(0, 0%, 0%, 0.04);
+        @apply ml-0 mr-0 mt-0 mb-[1.45rem] text-[0.85rem] leading-[1.42rem] p-[1.45rem] overflow-auto rounded-[3px];
         word-wrap: normal;
-        padding: 1.45rem;
     }
 
     table {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
-        font-size: 1rem;
-        line-height: 1.45rem;
-        border-collapse: collapse;
-        width: 100%;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem] text-[1rem] leading-[1.45rem] w-[100%] border-collapse;
     }
 
     blockquote {
-        margin-left: 1.45rem;
-        margin-right: 1.45rem;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-[1.45rem] mr-[1.45rem] mt-0 p-0 mb-[1.45rem];
     }
 
     form {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem];
     }
 
     noscript {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem];
     }
 
     iframe {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem];
     }
 
     address {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        margin-bottom: 1.45rem;
+        @apply ml-0 mr-0 mt-0 p-0 mb-[1.45rem];
     }
 
     b {
-        font-weight: bold;
+        @apply font-bold;
     }
 
     strong {
-        font-weight: bold;
+        @apply font-bold;
     }
 
     dt {
-        font-weight: bold;
+        @apply font-bold;
     }
 
     th {
-        font-weight: bold;
+        @apply font-bold;
     }
 
     li {
-        margin-bottom: calc(1.45rem / 2);
+        @apply mb-[0.725rem];
     }
 
     ol li {
-        padding-left: 0;
+        @apply pl-0;
     }
 
     ul li {
-        padding-left: 0;
+        @apply pl-0;
     }
 
     li>ol {
-        margin-left: 1.45rem;
-        margin-bottom: calc(1.45rem / 2);
-        margin-top: calc(1.45rem / 2);
+        @apply ml-[1.45rem] mb-[0.725rem] mt-[0.725rem];
     }
 
     li>ul {
-        margin-left: 1.45rem;
-        margin-bottom: calc(1.45rem / 2);
-        margin-top: calc(1.45rem / 2);
+        @apply ml-[1.45rem] mb-[0.725rem] mt-[0.725rem];
     }
 
     blockquote *:last-child {
-        margin-bottom: 0;
+        @apply mb-0;
     }
 
     li *:last-child {
-        margin-bottom: 0;
+        @apply mb-0;
     }
 
     p *:last-child {
-        margin-bottom: 0;
+        @apply mb-0;
     }
 
     li>p {
-        margin-bottom: calc(1.45rem / 2);
+        @apply mb-[0.725rem];
     }
 
     code {
-        font-size: 0.85rem;
-        line-height: 1.45rem;
+        @apply text-[0.85rem] leading-[1.45rem];
     }
 
     kbd {
-        font-size: 0.85rem;
-        line-height: 1.45rem;
+        @apply text-[0.85rem] leading-[1.45rem];
     }
 
     samp {
-        font-size: 0.85rem;
-        line-height: 1.45rem;
+        @apply text-[0.85rem] leading-[1.45rem];
     }
 
     abbr {
-        border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-        cursor: help;
+        border-color: hsla(0, 0%, 0%, 0.5);
+        @apply border-b-[1px] border-dotted cursor-help;
     }
 
     acronym {
-        border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-        cursor: help;
+        border-color: hsla(0, 0%, 0%, 0.5);
+        @apply border-b-[1px] border-dotted cursor-help;
     }
 
     thead {
-        text-align: left;
+        @apply text-left;
     }
 
     td,
     th {
-        text-align: left;
-        border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
+        padding-bottom: calc(1.45rem - 1px);
+        border-color: hsla(0, 0%, 0%, 0.12);
+        @apply text-left border-b-[1px] border-dotted pl-[0.96667rem] pr-[0.96667rem] pt-[0.725rem];
         font-feature-settings: "tnum";
         -moz-font-feature-settings: "tnum";
         -ms-font-feature-settings: "tnum";
         -webkit-font-feature-settings: "tnum";
-        padding-left: 0.96667rem;
-        padding-right: 0.96667rem;
-        padding-top: 0.725rem;
-        padding-bottom: calc(0.725rem - 1px);
     }
 
     th:first-child,
     td:first-child {
-        padding-left: 0;
+        @apply pl-0;
     }
 
     th:last-child,
     td:last-child {
-        padding-right: 0;
+        @apply pr-0;
     }
 
     tt,
     code {
         background-color: hsla(0, 0%, 0%, 0.04);
-        border-radius: 3px;
-        font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
-            "Liberation Mono", Menlo, Courier, monospace;
-        padding: 0;
-        padding-top: 0.2em;
-        padding-bottom: 0.2em;
+        font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono", "Liberation Mono", Menlo, Courier, monospace;
+        @apply rounded-[3px] px-0 pt-[0.2em] pb-[0.2em];
     }
 
     pre code {
         background: none;
-        line-height: 1.42;
+        @apply leading-[1.42];
     }
 
     code:before,
@@ -694,5 +450,7 @@
             font-size: 100%;
         }
     }
+
+
 }
 
